@@ -3,12 +3,18 @@
 template<typename Var>
 class Singleton
 {
-private:
-	static Singleton m_Instance;
-
 public:
-	Singleton();
-	virtual void StartUp();
-	virtual void ShutDown();
+
+	Var Instance() {
+		if (m_Instance == nullptr) { m_Instance = new Var(); }
+		return m_Instance;
+	}
+
+	void StartUp() {  };
+
+	void ShutDown() {  };
+
+private:
+	static Singleton* m_Instance = nullptr;
 };
 
