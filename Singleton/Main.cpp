@@ -2,10 +2,26 @@
 //
 
 #include <iostream>
+#include <ctime>
+
+using std::cout;
+
+clock_t u_TickTime = 0;
+clock_t u_DeltaTime = 0;
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	for (int i = 0; i < 10; ++i) {
+		u_DeltaTime = clock() - u_TickTime;
+		u_TickTime = clock();
+
+		cout << "Delta Time: ";
+		cout << u_DeltaTime;
+		cout << "\n";
+	}
+	cout << "end_of_line...";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
